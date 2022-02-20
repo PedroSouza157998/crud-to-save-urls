@@ -1,24 +1,9 @@
 <script>
-import Login from './view/Login.vue'
+    if(window.location.pathname==='/') window.location.href = 'http://localhost:3000/login'
+    
 
-export default {
-    components: {
-        Login
-    },
-
-}
 </script>
 
 <template>
-    <h1>
-        Hello App!</h1>
-    <p>
-        <router-link to="/">Go to Home</router-link>
-        <router-link to="/about">Go to About</router-link>
-    </p>
     <router-view></router-view>
 </template>
-
-<style>
-
-</style>

@@ -3,11 +3,21 @@ const {Users} = require("../../models/Users")
 const getAll = async (req, res) => {
     try{
     const users = await Users.findAll();
-    res.json(users)
+    res.json({users})
     }catch(error){
         res.json({seccess: false, message: 'ERROOOOOU!', error})
     }
-    // console.log(Users)
+}
+const login = async (req, res) => {
+    try{
+        console.log(req.body)
+        const user = await Users.findOne({where: req.body})
+
+        res.json({success: true, user})
+
+    }catch(error){
+        res.json({seccess: false, message: 'ERROOOOOU!', error})
+    }
 }
 
 const create = async (req, res) => {
@@ -23,5 +33,6 @@ const create = async (req, res) => {
 
 module.exports = {
     getAll,
-    create
+    create,
+    login
 }

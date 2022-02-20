@@ -19,10 +19,18 @@ const Users = sequelize.define('tb_users',
     password:{
         type: DataTypes.STRING,
         allowNull: false
-    } 
+    },
+    createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: new Date()
+    },
+    updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: new Date()
+    }
 })
 
-Users.sync({force: true})
+Users.sync()
 
 module.exports = {
     Users

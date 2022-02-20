@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
 const { Sequelize } = require('sequelize');
 const { Users } = require('./models/Users')
@@ -14,7 +15,7 @@ const sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: '../database/database.sqlite'
 })
-
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -23,6 +24,7 @@ app.post('/create_url', ControllerUrl.createUrl);
 
 //  ----------USER-------------
 app.get('/', ControllerUser.getAll);
+app.post('/login', ControllerUser.login);
 app.post('/signup', ControllerUser.create);
 
 app.listen(port, err => {

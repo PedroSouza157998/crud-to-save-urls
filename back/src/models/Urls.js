@@ -21,15 +21,23 @@ const Urls = sequelize.define('tb_urls',{
     },
     id_user:{
         type:DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
     },
     access:{
         type:DataTypes.INTEGER,
         allowNull: true
+    },
+    createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: new Date()
+    },
+    updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: new Date()
     }
 });
 
-Urls.sync({force: true})
+Urls.sync()
 
 module.exports = {
     Urls

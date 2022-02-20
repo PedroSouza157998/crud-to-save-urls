@@ -11,8 +11,9 @@ const getAll = async (req, res) => {
 }
 const createUrl = async (req, res) => {
     try {
-        await Urls.create(req.body);
-        res.json({success: true, urls: req.body})
+        await Urls.create(req.body).then(promise => {
+            res.json({ success: true, urls: promise })
+        })
     } catch (error) {
         res.json({ seccess: false, message: 'ERROOOOOU!', error })
     }
