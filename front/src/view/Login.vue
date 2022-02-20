@@ -1,6 +1,7 @@
 <script>
-import axios from 'axios'
-
+import axios from 'axios';
+import { mapState } from 'vuex';
+import { store } from '../store'; 
 export default {
     data() {
         return {
@@ -8,11 +9,18 @@ export default {
             password: "",
         };
     },
+    computed: {
+        ...mapState({
+            idUser: state => state.idUser
+        })
+    },
     methods: {
         async onSubmit() {
             const user = {name: this.name, password: this.password}
             axios.post('http://localhost:3333/login', user).then(({data}) => {
-                if(data.user) alert('Usuário logado com sucesso')
+                if(data.user) {
+                    store.commit('updateUser',data.user.id)
+                }
                 else alert('Usuário não encontrado')
             }).catch(error => {
                 console.log(error)
@@ -24,7 +32,7 @@ export default {
 
 <template>
     <form id="box" @submit.prevent="onSubmit">
-        <h1>Login</h1>
+        <h1>Login{{idUser}}</h1>
         <input type="name" v-model="name" />
         <input type="password" v-model="password" />
         <input type="submit" value="ENTRAR" />
