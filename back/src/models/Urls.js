@@ -5,25 +5,32 @@ const sequelize = new Sequelize({
     storage: '../database/database.sqlite'
 })
 
-const Users = sequelize.define('tb_users',
-{
+const Urls = sequelize.define('tb_urls',{
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },
-    name:{
+    label_url: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    password:{
-        type: DataTypes.STRING,
+    value_url:{
+        type:DataTypes.STRING,
         allowNull: false
-    } 
-})
+    },
+    id_user:{
+        type:DataTypes.INTEGER,
+        allowNull: false
+    },
+    access:{
+        type:DataTypes.INTEGER,
+        allowNull: true
+    }
+});
 
-Users.sync({force: true})
+Urls.sync({force: true})
 
 module.exports = {
-    Users
+    Urls
 }
