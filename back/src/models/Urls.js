@@ -23,6 +23,10 @@ const Urls = sequelize.define('tb_urls',{
         type:DataTypes.INTEGER,
         allowNull: true
     },
+    name_user:{
+        type:DataTypes.INTEGER,
+        allowNull: true
+    },
     access:{
         type:DataTypes.INTEGER,
         allowNull: true

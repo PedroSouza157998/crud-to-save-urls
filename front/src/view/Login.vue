@@ -1,7 +1,6 @@
 <script>
 import axios from 'axios';
 import { mapState } from 'vuex';
-import { store } from '../store'; 
 export default {
     data() {
         return {
@@ -19,7 +18,9 @@ export default {
             const user = {name: this.name, password: this.password}
             axios.post('http://localhost:3333/login', user).then(({data}) => {
                 if(data.user) {
-                    store.commit('updateUser',data.user.id)
+                    localStorage.setItem('idUser',data.user.id)
+                    localStorage.setItem('nameUser',data.user.name)
+                    this.$router.push('/home')
                 }
                 else alert('Usuário não encontrado')
             }).catch(error => {
@@ -27,6 +28,10 @@ export default {
             })
         }
     },
+    mounted() {
+        localStorage.setItem('idUser', undefined)
+        localStorage.setItem('nameUser', undefined)
+    }
 };
 </script>
 
@@ -40,14 +45,13 @@ export default {
     </form>
 </template>
 
-<style>
-body {
-    background: gray;
+<style scoped>
+h1 {
+    color: white;
 }
 #app {
     color: #fff;
     justify-content: center;
-    font-family: sans-serif;
 }
 #box {
     background-color: black;
