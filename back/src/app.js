@@ -2,10 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
 const { Sequelize } = require('sequelize');
-const { Users } = require('./models/Users')
-const { Urls } = require('./models/Urls')
-const ControllerUser = require('./controller/User/user_controller')
-const ControllerUrl = require('./controller/Url/url_controller')
+const ControllerUser = require('./controller/User/user_controller');
+const ControllerUrl = require('./controller/Url/url_controller');
 
 
 const app = express();
@@ -21,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/urls', ControllerUrl.getAll);
 app.post('/create_url', ControllerUrl.createUrl);
+app.put('/update_url', ControllerUrl.updateAccess);
 
 //  ----------USER-------------
 app.get('/', ControllerUser.getAll);

@@ -13,14 +13,16 @@ export default {
         }
     },
     methods: {
-        navigate(urlEndPoint) {
-            if(urlEndPoint.split(':')[0]==='https')window.open(urlEndPoint, '_blank')
-            else window.open('https://'+urlEndPoint, '_blank')
+        navigate(urlEndPoint, id) {
+            axios.put('http://localhost:3333/update_url', {id}).then((_) => {}).catch(error => {
+                console.log(error)
+            })
+            if (urlEndPoint.split(':')[0] === 'https') window.open(urlEndPoint, '_blank')
+            else window.open('https://' + urlEndPoint, '_blank')
         }
     },
     async mounted() {
         axios.get('http://localhost:3333/urls').then(({ data }) => {
-            console.log(data)
             this.urls = data
         }).catch(error => {
             console.log(error)
@@ -31,19 +33,17 @@ export default {
 
 <template>
     <Header/>
-    <h1>Home</h1>
-    <h2>{{ idUser }}</h2>
-    
     <ul id="urls">
-        <div id="card" @click="navigate(url.value_url)" v-for="url in urls" :key="url.id">
+    
+        <div id="card" @click="navigate(url.value_url, url.id)" v-for="url in urls" :key="url.id">
             <div>
-                <strong style="display: flex;flex-direction: column;">
-                    {{ url.label_url }}
-                </strong>
-                ({{url.name_user || 'anônimo'}})
+                <strong style="display: flex;flex-direction: column;">    
+                    {{url.name_user || 'anônimo'}}
+                </strong> (url.minify/{{ url.id }}.com)
             </div>
-            <label style="margin-right: 10px;margin-top: 5px;">Acessos: {{url.access}}</label>
+            <label style="margin-right: 10px;margin-top: 5px;">Acessos: {{url.access || 0}}</label>
         </div>
+    
     </ul>
 </template>
 
@@ -53,6 +53,7 @@ export default {
     justify-content: center;
     flex-direction: column;
 }
+
 #card {
     display: flex;
     flex-direction: row;
