@@ -31,7 +31,7 @@ const Users = sequelize.define('tb_users',
 })
 
 Users.sync()
-
+// Users.sync({force: true})
 module.exports = {
     Users
 }

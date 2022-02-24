@@ -37,11 +37,16 @@ export default {
     
         <div id="card" @click="navigate(url.value_url, url.id)" v-for="url in urls" :key="url.id">
             <div>
-                <strong style="display: flex;flex-direction: column;">    
-                    {{url.name_user || 'anônimo'}}
-                </strong> (url.minify/{{ url.id }}.com)
+                <strong style="margin-bottom: 20px;"> {{url.label_url}} </strong>
+                <div style="display: flex;flex-direction: row;margin-top: 12px;">
+                    <strong style="display: flex;flex-direction: column;">    
+                        usuário: 
+                    </strong>
+                    {{url.name_user == 'undefined' || !url.name_user ? 'anônimo' : url.name_user}}
+                </div> (url.minify/{{ url.id }}.com)
             </div>
             <label style="margin-right: 10px;margin-top: 5px;">Acessos: {{url.access || 0}}</label>
+            <button value="DELETAR"/>
         </div>
     
     </ul>
@@ -59,10 +64,10 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     width: 300px;
-    height: 120px;
+    height: 100px;
     margin: auto;
     margin-bottom: 20px;
-    background-color: aliceblue;
+    background-color: gray;
     border-radius: 10px;
     cursor: pointer;
 }

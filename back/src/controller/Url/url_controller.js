@@ -2,8 +2,7 @@ const { Urls } = require("../../models/Urls")
 
 const getAll = async (req, res) => {
     try {
-        const urls = await Urls.findAll();
-        console.log();
+        const urls = await Urls.findAll({order: [['access', 'DESC']] });
         res.json(urls)
     } catch (error) {
         res.json({ seccess: false, message: 'ERROOOOOU!', error })

@@ -42,6 +42,7 @@ const Urls = sequelize.define('tb_urls',{
 });
 
 Urls.sync()
+// Urls.sync({force: true})
 
 module.exports = {
     Urls

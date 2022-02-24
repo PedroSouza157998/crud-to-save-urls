@@ -41,7 +41,8 @@ export default {
         <input type="name" v-model="name" />
         <input type="password" v-model="password" />
         <input type="submit" value="ENTRAR" />
-        <router-link to="/signup">criar conta aqui</router-link>
+        <router-link style="margin-top: 10px;" to="/signup">Criar conta aqui</router-link>
+        <router-link style="margin-top: 10px;" to="/home">Entrar como anônimo</router-link>
     </form>
 </template>
 

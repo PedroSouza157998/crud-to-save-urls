@@ -23,7 +23,7 @@ export default {
 <div id="header">
     <div id="back" @click="screenLabel" v-if="screenUrlInput"> </div>
     <UrlInput v-if="screenUrlInput"/>
-    <h1>URLS - {{nameUser || 'anônimo'}}</h1>
+    <h1>URLS - {{nameUser== undefined || !nomeUser ? 'anônimo' : nameUser}}</h1>
     <div id="links">
         <a href="#" @click="screenLabel">Criar URL</a>
         <router-link to="/login">Fazer login</router-link>

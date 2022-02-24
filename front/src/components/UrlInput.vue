@@ -4,18 +4,19 @@ export default {
     name: 'UrlInput',
     data() {
         return {
-            url: ''
+            url: '',
+            labelUrl: ''
         }
     },
     methods: {
         onSubmit() {
-            const url = {
-                value_url: this.url, 
-                label_url: this.url, 
+            const newUrl = {
+                value_url: this.url,
+                label_url: this.labelUrl,
                 id_user: localStorage.getItem('idUser'),
-                name_user: localStorage.getItem('nameUser')
-                }
-            axios.post('http://localhost:3333/create_url', url).then(({data}) => {
+                name_user: localStorage.getItem('nameUser') == undefined || !localStorage.getItem('nameUser') ? 'anônimo' : localStorage.getItem('nameUser')
+            }
+            axios.post('http://localhost:3333/create_url', newUrl).then(({ data }) => {
                 console.log(data)
             }).catch(error => {
                 console.log(error)
@@ -27,14 +28,25 @@ export default {
 
 <template>
     <div id="box-label">
+    
         <h1 style="margin-left: 10px;"> Insira sua URL aqui </h1>
+    
         <form @submit="onSubmit">
+    
             <div style="margin-left: 20px;display: flex;flex-direction: column;">
+    
                 Url:
-                <input v-model="url" maxlength="120" />
-                <input value="ENVIAR" type="submit"/>
+    
+                <input v-model="url" minlength="5" maxlength="120" /> Titulo Url:
+    
+                <input v-model="labelUrl" minlength="1" maxlength="20" />
+    
+                <input value="ENVIAR" type="submit" />
+    
             </div>
+    
         </form>
+    
     </div>
 </template>
 
@@ -47,11 +59,11 @@ export default {
     top: 50%;
     left: 50%;
     margin-left: -200px;
-    margin-top: -75px;
+    margin-top: -150px;
     background-color: black;
     border-radius: 10px;
     width: 400px;
-    height: 200px;
+    height: 300px;
 }
 
 input {
@@ -82,6 +94,7 @@ input[type="submit"] {
     padding-inline: 15px;
     transition: 0.25s;
 }
+
 input[type="submit"]:hover {
     background: #fff;
     color: black;
