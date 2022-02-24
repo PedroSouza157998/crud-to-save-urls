@@ -28,9 +28,20 @@ const updateAccess = async (req, res) => {
         res.json({ seccess: false, message: 'ERROOOOOU!', error })
     }
 }
+const deleteUrl = async (req, res) => {
+    try {
+        const url = await Urls.findOne({where: req.body});
+        await Urls.destroy({where: req.body}).then(promise => {
+            res.json({ success: true, urls: promise })
+        })
+    } catch (error) {
+        res.json({ seccess: false, message: 'ERROOOOOU!', error })
+    }
+}
 
 module.exports = {
     getAll,
     createUrl,
-    updateAccess
+    updateAccess,
+    deleteUrl
 }

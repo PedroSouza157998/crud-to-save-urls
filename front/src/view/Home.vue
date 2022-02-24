@@ -19,6 +19,12 @@ export default {
             })
             if (urlEndPoint.split(':')[0] === 'https') window.open(urlEndPoint, '_blank')
             else window.open('https://' + urlEndPoint, '_blank')
+            document.location.reload(true)
+        },
+        deleteUrl(id) {
+            axios.delete('http://localhost:3333/delete_url', {id}).then((_) => {document.location.reload(true)}).catch(error => {
+                console.log(error)
+            })
         }
     },
     async mounted() {
@@ -35,8 +41,8 @@ export default {
     <Header/>
     <ul id="urls">
     
-        <div id="card" @click="navigate(url.value_url, url.id)" v-for="url in urls" :key="url.id">
-            <div>
+        <div id="card" v-for="url in urls" :key="url.id">
+            <div @click.prevent="navigate(url.value_url, url.id)" >
                 <strong style="margin-bottom: 20px;"> {{url.label_url}} </strong>
                 <div style="display: flex;flex-direction: row;margin-top: 12px;">
                     <strong style="display: flex;flex-direction: column;">    
@@ -46,7 +52,7 @@ export default {
                 </div> (url.minify/{{ url.id }}.com)
             </div>
             <label style="margin-right: 10px;margin-top: 5px;">Acessos: {{url.access || 0}}</label>
-            <button value="DELETAR"/>
+            <button v-if="idUser !== 'undefined' && idUser==url.id_user"  @click="deleteUrl( url.id)">DELETAR</button>
         </div>
     
     </ul>

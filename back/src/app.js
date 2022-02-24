@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/urls', ControllerUrl.getAll);
 app.post('/create_url', ControllerUrl.createUrl);
 app.put('/update_url', ControllerUrl.updateAccess);
+app.delete('/delete_url', ControllerUrl.deleteUrl);
 
 //  ----------USER-------------
 app.get('/', ControllerUser.getAll);
