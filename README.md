@@ -7,6 +7,7 @@ Esse repositório faz parte de um projeto para engresar na empresa speedIO.
  - As rotas do back-end poderiam ser mais organizados 
  - Não foi criado nenhum protótipo de design, por tanto as cores, os tamanhos e a estilização precisam melhorar
  - Não á segurança no front-end e nem bloqueio de rotas no back
+ - O prazo foi muito curto para um teste de interface
 
 ## Como executar
  1. Tenha o node `v14.17.3` ou superior instalado 
