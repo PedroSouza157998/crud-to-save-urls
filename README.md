@@ -1,6 +1,6 @@
 # SpeedIO-issue
 
-Esse repositório faz parte de um projeto para engresar na empresa speedIO.
+Esse repositório faz parte de um projeto para a empresa speedIO.
 
 ## Alguns problemas devidos ao prazo
  - Os inputs da aplicação tem todos a mesma estilização e poderiam ser um único componente
