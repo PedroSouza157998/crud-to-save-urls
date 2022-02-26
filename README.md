@@ -1,6 +1,7 @@
 # SpeedIO-issue
 
 Esse repositório faz parte de um projeto para a empresa speedIO.
+Passei muito tempo estudando Vue, e isto acabou me atrasando mas ainda, mas agora aprendi oque é LocalStorage e vuex. 😊
 
 ## Alguns problemas devidos ao prazo
  - Os inputs da aplicação tem todos a mesma estilização e poderiam ser um único componente
