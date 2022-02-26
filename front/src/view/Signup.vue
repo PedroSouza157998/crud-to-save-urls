@@ -12,7 +12,7 @@ export default {
             const user = {name: this.name, password: this.password}
             axios.post('http://localhost:3333/signup', user).then(({data}) => {
                 if(data.success) this.$router.push('/login')
-                else alert('Usuário inválido')
+                else alert(data.message)
             }).catch(error => {
                 console.log(error)
             })

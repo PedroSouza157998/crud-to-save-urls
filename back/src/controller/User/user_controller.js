@@ -5,18 +5,28 @@ const getAll = async (req, res) => {
         const users = await Users.findAll();
         res.json({ users })
     } catch (error) {
-        res.json({ seccess: false, message: 'ERROOOOOU!', error })
+        res.json({ success: false, message: 'ERROOOOOU!', error })
     }
 }
 const login = async (req, res) => {
     try {
-        console.log(req.body)
         const user = await Users.findOne({ where: req.body })
 
         res.json({ success: true, user })
 
     } catch (error) {
-        res.json({ seccess: false, message: 'ERROOOOOU!', error })
+        res.json({ success: false, message: 'ERROOOOOU!', error })
+    }
+}
+
+const delete_user = async (req, res) => {
+    try {
+        const user = await Users.findOne({where: req.body});
+        await user.destroy({where: req.body}).then(promise => {
+            res.json({ success: true, urls: promise })
+        })
+    } catch (error) {
+        res.json({ success: false, message: 'ERROOOOOU!', error })
     }
 }
 
@@ -33,7 +43,7 @@ const create = async (req, res) => {
             res.json({success: false, message: 'Usuário existente'})
         }
     } catch (error) {
-        res.json({ seccess: false, message: 'ERROOOOOU!', error })
+        res.json({ success: false, message: 'ERROOOOOU!', error })
     }
 }
 
@@ -41,5 +51,6 @@ const create = async (req, res) => {
 module.exports = {
     getAll,
     create,
-    login
+    login,
+    delete_user
 }

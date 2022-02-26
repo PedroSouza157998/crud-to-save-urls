@@ -17,6 +17,7 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//  ----------URL-------------
 app.get('/urls', ControllerUrl.getAll);
 app.post('/create_url', ControllerUrl.createUrl);
 app.put('/update_url', ControllerUrl.updateAccess);
@@ -26,6 +27,7 @@ app.delete('/delete_url', ControllerUrl.deleteUrl);
 app.get('/', ControllerUser.getAll);
 app.post('/login', ControllerUser.login);
 app.post('/signup', ControllerUser.create);
+app.delete('/delete_user', ControllerUser.delete_user);
 
 app.listen(port, err => {
     if (err) {
@@ -34,6 +36,4 @@ app.listen(port, err => {
     return console.log(`server is listening on ${port}`);
 });
 
-exports.module = {
-    app
-}
+module.exports = app;

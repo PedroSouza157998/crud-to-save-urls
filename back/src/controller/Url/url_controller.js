@@ -5,7 +5,7 @@ const getAll = async (req, res) => {
         const urls = await Urls.findAll({order: [['access', 'DESC']], limit: 100 });
         res.json(urls)
     } catch (error) {
-        res.json({ seccess: false, message: 'ERROOOOOU!', error })
+        res.json({ success: false, message: 'ERROOOOOU!', error })
     }
 }
 const createUrl = async (req, res) => {
@@ -15,7 +15,7 @@ const createUrl = async (req, res) => {
             res.json({ success: true, urls: promise })
         })
     } catch (error) {
-        res.json({ seccess: false, message: 'ERROOOOOU!', error })
+        res.json({ success: false, message: 'ERROOOOOU!', error })
     }
 }
 const updateAccess = async (req, res) => {
@@ -25,7 +25,7 @@ const updateAccess = async (req, res) => {
             res.json({ success: true, urls: promise })
         })
     } catch (error) {
-        res.json({ seccess: false, message: 'ERROOOOOU!', error })
+        res.json({ success: false, message: 'ERROOOOOU!', error })
     }
 }
 const deleteUrl = async (req, res) => {
@@ -35,7 +35,7 @@ const deleteUrl = async (req, res) => {
             res.json({ success: true, urls: promise })
         })
     } catch (error) {
-        res.json({ seccess: false, message: 'ERROOOOOU!', error })
+        res.json({ success: false, message: 'ERROOOOOU!', error })
     }
 }
 

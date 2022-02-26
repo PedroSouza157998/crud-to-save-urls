@@ -14,13 +14,6 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "test",
-			"program": "${workspaceFolder}\\test.js",
-			//"env": { "PORT": "80" }
-		},
-		{
-			"type": "node",
-			"request": "launch",
 			"name": "sendMovEmail",
 			"program": "${workspaceFolder}\\scripts/sendMovEmail.js",
 			//"env": { "PORT": "80" }
