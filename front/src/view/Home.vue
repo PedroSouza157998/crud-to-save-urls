@@ -14,7 +14,7 @@ export default {
     },
     methods: {
         navigate(urlEndPoint, id) {
-            axios.put('http://localhost:3333/update_url', {id}).then((_) => {}).catch(error => {
+            axios.put('http://localhost:3333/update_url', { id }).then((_) => {}).catch(error => {
                 console.log(error)
             })
             if (urlEndPoint.split(':')[0] === 'https') window.open(urlEndPoint, '_blank')
@@ -22,7 +22,7 @@ export default {
             document.location.reload(true)
         },
         deleteUrl(id) {
-            axios.delete('http://localhost:3333/delete_url', {id}).then((_) => {document.location.reload(true)}).catch(error => {
+            axios.delete('http://localhost:3333/delete_url', { id }).then((_) => { document.location.reload(true) }).catch(error => {
                 console.log(error)
             })
         }
@@ -39,20 +39,31 @@ export default {
 
 <template>
     <Header/>
+    
     <ul id="urls">
     
+    
+    
         <div id="card" v-for="url in urls" :key="url.id">
-            <div @click.prevent="navigate(url.value_url, url.id)" >
-                <strong style="margin-bottom: 20px;"> {{url.label_url}} </strong>
+    
+            <div @click.prevent="navigate(url.value_url, url.id)">
+    
+                <strong style="margin-bottom: 20px; text-overflow: ellipsis; width: 200px; overflow-x: hidden; display: block;"> {{url.label_url}} </strong>
                 <div style="display: flex;flex-direction: row;margin-top: 12px;">
                     <strong style="display: flex;flex-direction: column;">    
-                        usuário: 
-                    </strong>
-                    {{url.name_user == 'undefined' || !url.name_user ? 'anônimo' : url.name_user}}
+                            usuário: 
+                        </strong> {{url.name_user == 'undefined' || !url.name_user ? 'anônimo' : url.name_user}}
                 </div> (url.minify/{{ url.id }}.com)
+    
             </div>
-            <label style="margin-right: 10px;margin-top: 5px;">Acessos: {{url.access || 0}}</label>
-            <button v-if="idUser !== 'undefined' && idUser==url.id_user"  @click="deleteUrl( url.id)">DELETAR</button>
+            <div>
+    
+                <label style="margin-right: 10px;margin-top: 5px;">Acessos: {{url.access || 0}}</label>
+    
+                <button v-if="idUser !== 'undefined' && idUser==url.id_user" @click="deleteUrl( url.id)">DELETAR</button>
+    
+            </div>
+    
         </div>
     
     </ul>
@@ -76,5 +87,6 @@ export default {
     background-color: gray;
     border-radius: 10px;
     cursor: pointer;
+    padding: 5px;
 }
 </style>

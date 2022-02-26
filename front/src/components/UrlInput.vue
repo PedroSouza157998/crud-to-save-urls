@@ -37,7 +37,7 @@ export default {
     
                 Url:
     
-                <input v-model="url" minlength="5" maxlength="120" /> Titulo Url:
+                <input v-model="url" minlength="12" maxlength="120" /> Titulo Url:
     
                 <input v-model="labelUrl" minlength="1" maxlength="20" />
     
