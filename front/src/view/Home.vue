@@ -22,9 +22,10 @@ export default {
             document.location.reload(true)
         },
         deleteUrl(id) {
-            axios.delete('http://localhost:3333/delete_url', { id }).then((_) => { document.location.reload(true) }).catch(error => {
+            axios.post('http://localhost:3333/delete_url', { id: id }).then((_) => { }).catch(error => {
                 console.log(error)
             })
+            document.location.reload(true)
         }
     },
     async mounted() {
@@ -60,7 +61,7 @@ export default {
     
                 <label style="margin-right: 10px;margin-top: 5px;">Acessos: {{url.access || 0}}</label>
     
-                <button v-if="idUser !== 'undefined' && idUser==url.id_user" @click="deleteUrl( url.id)">DELETAR</button>
+                <button v-if="idUser !== 'undefined' && idUser==url.id_user" @click="deleteUrl(url.id)">DELETAR</button>
     
             </div>
     

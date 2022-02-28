@@ -53,7 +53,7 @@ describe('Validate the functions from url', () => {
         const id = urls.body[urls.body.length-1].id
 
         const response = await request(app)
-        .delete('/delete_url').send({id})
+        .post('/delete_url').send({id})
 
         expect(response.body.success).toBeTruthy();
     });
