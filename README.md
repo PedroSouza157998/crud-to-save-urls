@@ -3,7 +3,7 @@
 Esse repositório faz parte de um projeto para a empresa speedIO.
 Passei muito tempo estudando Vue, e isto acabou me atrasando mais ainda, mas agora aprendi oque é LocalStorage e vuex. 😊
 
-https://share.vidyard.com/watch/jE8LAqG83ebjugsUYJRrRg?
+#### Link de apresentação do projeto: https://share.vidyard.com/watch/jE8LAqG83ebjugsUYJRrRg 
 
 ## Alguns problemas devidos ao prazo
  - Os inputs da aplicação tem todos a mesma estilização e poderiam ser um único componente
