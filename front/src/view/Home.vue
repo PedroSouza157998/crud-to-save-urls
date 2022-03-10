@@ -54,7 +54,7 @@ export default {
     <Header/>
 
     <div style="display: flex; justify-content: space-around; margin: auto;">
-        <ul id="urls">
+        <ul v-if="idUser !== 'undefined'" id="urls">
             <h1 style="text-align: center;" > Urls do usuário </h1>
             <div id="card" v-for="url in urls_user" :key="url.id">
                 <div @click.prevent="navigate(url.value_url, url.id)">
@@ -103,17 +103,14 @@ export default {
 <style scoped>
 #urls {
     display: flex;
-    justify-content: center;
     flex-direction: column;
 }
 
 #card {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     width: 300px;
     height: 100px;
-    margin: auto;
     margin-bottom: 20px;
     background-color: gray;
     border-radius: 10px;
