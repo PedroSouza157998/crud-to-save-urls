@@ -31,6 +31,11 @@ const Urls = sequelize.define('tb_urls',{
         type:DataTypes.INTEGER,
         allowNull: true
     },
+    favorite: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+        allowNull: false
+    },
     createdAt: {
         type: DataTypes.DATE,
         defaultValue: new Date()

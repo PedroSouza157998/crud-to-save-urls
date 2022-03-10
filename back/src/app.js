@@ -19,8 +19,10 @@ app.use(express.urlencoded({ extended: true }));
 
 //  ----------URL-------------
 app.get('/urls', ControllerUrl.getAll);
+app.get('/urls_user/:id', ControllerUrl.getAllFromUser);
 app.post('/create_url', ControllerUrl.createUrl);
 app.put('/update_url', ControllerUrl.updateAccess);
+app.put('/favorite_url', ControllerUrl.favoriteUrl);
 app.post('/delete_url', ControllerUrl.deleteUrl);
 
 //  ----------USER-------------

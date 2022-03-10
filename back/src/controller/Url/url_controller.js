@@ -8,6 +8,14 @@ const getAll = async (req, res) => {
         res.json({ success: false, message: 'ERROOOOOU!', error })
     }
 }
+const getAllFromUser = async (req, res) => {
+    try {
+        const urls = await Urls.findAll({order: [['access', 'DESC']], where: {id_user: req.params.id}});
+        res.json(urls)
+    } catch (error) {
+        res.json({ success: false, message: 'ERROOOOOU!', error })
+    }
+}
 const createUrl = async (req, res) => {
     try {
         if(req.body.value_url.length<= 12) return res.json({success: false, message: 'Link inserrido é muito curto'})
@@ -28,6 +36,16 @@ const updateAccess = async (req, res) => {
         res.json({ success: false, message: 'ERROOOOOU!', error })
     }
 }
+const favoriteUrl = async (req, res) => {
+    try {
+        const url = await Urls.findOne({where: req.body});
+        await Urls.update({favorite: !url.favorite}, {where: req.body}).then(promise => {
+            res.json({ success: true, urls: promise })
+        })
+    } catch (error) {
+        res.json({ success: false, message: 'ERROOOOOU!', error })
+    }
+}
 const deleteUrl = async (req, res) => {
     try {
         const url = await Urls.findOne({where: req.body});
@@ -41,7 +59,9 @@ const deleteUrl = async (req, res) => {
 
 module.exports = {
     getAll,
+    getAllFromUser,
     createUrl,
     updateAccess,
+    favoriteUrl,
     deleteUrl
 }
