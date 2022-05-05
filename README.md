@@ -1,4 +1,4 @@
-# SpeedIO-issue
+# crud-to-save-urls
 
 Esse repositório fez parte de um projeto de teste para a empresa speedIO.
 Com este projeto aprendi Vuee oque é LocalStorage e vuex. 😊
