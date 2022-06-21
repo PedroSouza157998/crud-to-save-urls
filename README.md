@@ -1,7 +1,7 @@
 # CRUD to save urls
 
-Esse repositório fez parte de um projeto de teste para a empresa speedIO.
-Com este projeto aprendi Vuee oque é LocalStorage e vuex. 😊
+Esse repositório fez parte de um projeto de teste para Conhecer melhor o VueJS.
+Com este projeto, além do Vue, aprendi oque é e como utilizar o LocalStorage e vuex. 😊
 
 ## Alguns problemas devidos ao prazo
  - Os inputs da aplicação tem todos a mesma estilização e poderiam ser um único componente
