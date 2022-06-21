@@ -3,13 +3,6 @@
 Esse repositório fez parte de um projeto de teste para Conhecer melhor o VueJS.
 Com este projeto, além do Vue, aprendi oque é e como utilizar o LocalStorage e vuex. 😊
 
-## Alguns problemas devidos ao prazo
- - Os inputs da aplicação tem todos a mesma estilização e poderiam ser um único componente
- - As rotas do back-end poderiam ser mais organizados 
- - Não foi criado nenhum protótipo de design, por tanto as cores, os tamanhos e a estilização precisam melhorar
- - Não á segurança no front-end e nem bloqueio de rotas no back
- - O prazo foi muito curto para um teste de interface
-
 ## Como executar
  1. Tenha o node `v14.17.3` ou superior instalado 
  2. Clone o repósitório no seu ambiente com o comando `git clone https://github.com/PedroSouza157998/SpeedIO-issue.git`
