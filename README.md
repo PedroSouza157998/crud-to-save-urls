@@ -5,7 +5,7 @@ Com este projeto, além do Vue, aprendi o que é, e como utilizar o LocalStorage
 
 ## Como executar
  1. Tenha o node `v14.17.3` ou superior instalado 
- 2. Clone o repositório no seu ambiente com o comando `git clone https://github.com/PedroSouza157998/SpeedIO-issue.git`
+ 2. Clone o repositório no seu ambiente com o comando `git clone https://github.com/PedroSouza157998/crud-to-save-urls.git`
  3. Acesse a pasta do projeto "back" e execute o comando `npm` ou `yarn` para instalar as dependências
  4. Em seguida execute o comando `npm dev` ou `yarn dev` para iniciar o back-end
  5. Acesse a pasta do projeto "front" e execute o comando `npm` ou `yarn` para instalar as dependências 
